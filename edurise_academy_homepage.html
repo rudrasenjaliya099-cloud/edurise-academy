@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="EduRise Academy — practical computer courses to build skills for your future.">
+  <title>EduRise Academy | Learn Today, Lead Tomorrow</title>
+  <style>
+    :root {
+      --navy: #10213f;
+      --blue: #2563eb;
+      --cyan: #22c3d6;
+      --ink: #17233b;
+      --muted: #64748b;
+      --pale: #f3f7ff;
+      --white: #fff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: Arial, Helvetica, sans-serif; color: var(--ink); line-height: 1.6; background: var(--white); }
+    a { text-decoration: none; color: inherit; }
+    .container { width: min(1120px, 90%); margin: auto; }
+    header { background: rgba(255,255,255,.96); position: sticky; top: 0; z-index: 10; box-shadow: 0 2px 18px rgba(16,33,63,.08); }
+    .nav { min-height: 74px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: flex; align-items: center; gap: 11px; font-weight: 800; color: var(--navy); font-size: 1.2rem; }
+    .logo { width: 42px; height: 42px; border-radius: 13px; display: grid; place-items: center; color: white; font-weight: 900; background: linear-gradient(135deg,var(--blue),var(--cyan)); }
+    .links { display: flex; align-items: center; gap: 26px; color: #475569; font-size: .94rem; }
+    .links a:hover { color: var(--blue); }
+    .btn { display: inline-flex; justify-content: center; align-items: center; padding: 13px 21px; border-radius: 12px; background: var(--blue); color: white; font-weight: 700; border: 0; cursor: pointer; transition: .2s; }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 9px 22px rgba(37,99,235,.23); }
+    .btn-light { background: white; color: var(--navy); border: 1px solid #dbe5f4; }
+    .menu-btn { display: none; background: none; border: 0; font-size: 1.7rem; color: var(--navy); cursor: pointer; }
+    .hero { overflow: hidden; background: radial-gradient(circle at 82% 20%,rgba(34,195,214,.25),transparent 28%), linear-gradient(120deg,#eef4ff,#f8fbff 60%,#e9fbff); padding: 86px 0 78px; }
+    .hero-grid { display: grid; grid-template-columns: 1.12fr .88fr; align-items: center; gap: 55px; }
+    .eyebrow { color: var(--blue); font-weight: 800; text-transform: uppercase; letter-spacing: 1.7px; font-size: .78rem; }
+    h1 { color: var(--navy); font-size: clamp(2.55rem,5vw,4.3rem); line-height: 1.08; margin: 17px 0 20px; letter-spacing: -1.8px; }
+    h1 span { color: var(--blue); }
+    .hero p { color: #53647e; max-width: 570px; font-size: 1.08rem; }
+    .hero-actions { display: flex; gap: 13px; flex-wrap: wrap; margin-top: 29px; }
+    .hero-note { margin-top: 23px; font-size: .88rem !important; color: #718096 !important; }
+    .visual { min-height: 355px; position: relative; display: grid; place-items: center; }
+    .screen { width: min(100%,420px); padding: 17px; border-radius: 23px; background: white; box-shadow: 0 25px 65px rgba(16,33,63,.16); transform: rotate(2deg); }
+    .screen-top { display: flex; gap: 6px; padding: 3px 3px 15px; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: #dbe5f4; }
+    .screen-content { background: #f2f7ff; border-radius: 15px; padding: 22px; }
+    .screen-label { font-size: .75rem; color: var(--blue); font-weight: 800; }
+    .screen-title { font-size: 1.35rem; color: var(--navy); font-weight: 800; margin: 8px 0 16px; }
+    .progress { height: 9px; border-radius: 20px; background: #dce7f7; margin: 8px 0 18px; overflow: hidden; }
+    .progress span { display: block; height: 100%; width: 72%; background: linear-gradient(90deg,var(--blue),var(--cyan)); border-radius: inherit; }
+    .mini-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .mini { background: white; border-radius: 12px; padding: 14px; font-size: .82rem; color: #52627b; }
+    .mini b { display: block; font-size: 1rem; color: var(--navy); margin-top: 4px; }
+    .float-tag { position: absolute; background: white; padding: 13px 17px; border-radius: 14px; box-shadow: 0 12px 30px rgba(16,33,63,.13); font-weight: 800; color: var(--navy); }
+    .tag-one { top: 22px; right: 0; }.tag-two { bottom: 18px; left: -5px; }
+    section { padding: 78px 0; }
+    .section-head { text-align: center; max-width: 650px; margin: 0 auto 42px; }
+    .section-head h2 { font-size: clamp(1.9rem,3.5vw,2.7rem); color: var(--navy); margin: 10px 0; letter-spacing: -.8px; }
+    .section-head p { color: var(--muted); }
+    .courses { background: var(--pale); }
+    .course-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .course { background: white; border: 1px solid #e7edf7; border-radius: 18px; padding: 25px; transition: .2s; }
+    .course:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(16,33,63,.08); }
+    .course-icon { width: 52px; height: 52px; border-radius: 15px; display: grid; place-items: center; background: #eaf1ff; font-size: 1.55rem; margin-bottom: 18px; }
+    .course h3 { color: var(--navy); font-size: 1.13rem; margin-bottom: 9px; }
+    .course p { color: var(--muted); font-size: .92rem; min-height: 70px; }
+    .course a { display: inline-block; color: var(--blue); font-weight: 800; margin-top: 15px; font-size: .9rem; }
+    .features-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; }
+    .feature { padding: 15px; text-align: center; }
+    .feature .course-icon { margin: 0 auto 14px; }
+    .feature h3 { color: var(--navy); margin-bottom: 7px; }
+    .feature p { color: var(--muted); font-size: .93rem; }
+    .cta { background: linear-gradient(115deg,#10213f,#1d4d91); color: white; text-align: center; padding: 62px 20px; border-radius: 25px; }
+    .cta h2 { font-size: clamp(1.8rem,4vw,2.7rem); margin-bottom: 12px; }
+    .cta p { color: #d5e4ff; margin: 0 auto 24px; max-width: 600px; }
+    .cta .btn { background: white; color: var(--navy); }
+    .contact { background: #f7f9fd; }
+    .contact-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 45px; align-items: start; }
+    .contact h2 { color: var(--navy); font-size: 2.2rem; margin: 9px 0 12px; }
+    .contact p { color: var(--muted); }
+    form { background: white; border: 1px solid #e7edf7; padding: 25px; border-radius: 18px; box-shadow: 0 10px 30px rgba(16,33,63,.05); }
+    label { display: block; font-size: .88rem; font-weight: 700; color: var(--navy); margin: 0 0 6px; }
+    input, select, textarea { width: 100%; padding: 12px 13px; margin-bottom: 15px; border: 1px solid #d9e2ef; border-radius: 10px; font: inherit; outline: none; }
+    input:focus, select:focus, textarea:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(37,99,235,.1); }
+    textarea { min-height: 95px; resize: vertical; }
+    footer { background: #0b1830; color: #c5d0e1; padding: 28px 0; text-align: center; font-size: .88rem; }
+    footer b { color: white; }
+    @media (max-width: 800px) {
+      .links { display: none; position: absolute; top: 74px; left: 0; right: 0; padding: 20px 5%; background: white; flex-direction: column; align-items: flex-start; box-shadow: 0 12px 18px rgba(16,33,63,.08); }
+      .links.open { display: flex; }.menu-btn { display: block; }.nav > .btn { display: none; }
+      .hero { padding: 62px 0; }.hero-grid,.contact-grid { grid-template-columns: 1fr; gap: 35px; }
+      .visual { min-height: 320px; }.course-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 540px) {
+      section { padding: 60px 0; }.course-grid,.features-grid { grid-template-columns: 1fr; }
+      .course p { min-height: 0; }.tag-one { right: -3px; }.tag-two { left: -2px; }
+      .hero-actions .btn { width: 100%; }.screen { padding: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#home"><span class="logo">E</span><span>EduRise Academy</span></a>
+      <nav class="links" id="navLinks">
+        <a href="#home">Home</a><a href="#courses">Courses</a><a href="#about">About</a><a href="#contact">Contact</a>
+      </nav>
+      <a class="btn" href="#contact">Enquire Now</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Welcome to EduRise Academy</div>
+          <h1>Build Your Skills.<br><span>Shape Your Future.</span></h1>
+          <p>Learn practical computer skills with beginner-friendly courses designed to help you grow with confidence in a digital world.</p>
+          <div class="hero-actions">
+            <a class="btn" href="#courses">Explore Courses →</a>
+            <a class="btn btn-light" href="#contact">Join Our Academy</a>
+          </div>
+          <p class="hero-note">Learn Today • Lead Tomorrow</p>
+        </div>
+        <div class="visual" aria-label="Illustration of a student learning online">
+          <div class="float-tag tag-one">💡 Learn new skills</div>
+          <div class="screen">
+            <div class="screen-top"><i class="dot"></i><i class="dot"></i><i class="dot"></i></div>
+            <div class="screen-content">
+              <div class="screen-label">YOUR LEARNING SPACE</div>
+              <div class="screen-title">Welcome, Future Achiever!</div>
+              <div style="font-size:.82rem;color:#64748b">Your learning journey starts here.</div>
+              <div style="margin-top:20px;font-weight:700;color:#17233b;font-size:.86rem">Your progress</div>
+              <div class="progress"><span></span></div>
+              <div class="mini-cards">
+                <div class="mini">💻 Courses<b>Practical skills</b></div>
+                <div class="mini">🎯 Goals<b>Career growth</b></div>
+              </div>
+            </div>
+          </div>
+          <div class="float-tag tag-two">🚀 Learn at your pace</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="courses" id="courses">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">What you can learn</div>
+          <h2>Explore Our Computer Courses</h2>
+          <p>Start with the basics or build skills for your next opportunity. Course details and fees can be added when finalized.</p>
+        </div>
+        <div class="course-grid">
+          <article class="course"><div class="course-icon">🖥️</div><h3>Basic Computer Skills</h3><p>Understand computer fundamentals, files, folders, internet and everyday digital tasks.</p><a href="#contact">Enquire about course →</a></article>
+          <article class="course"><div class="course-icon">📊</div><h3>MS Office</h3><p>Learn Word, Excel and PowerPoint for study, office work and presentations.</p><a href="#contact">Enquire about course →</a></article>
+          <article class="course"><div class="course-icon">⌨️</div><h3>English & Gujarati Typing</h3><p>Improve typing accuracy and speed through regular guided practice.</p><a href="#contact">Enquire about course →</a></article>
+          <article class="course"><div class="course-icon">🌐</div><h3>Internet & Digital Skills</h3><p>Build confidence with email, online forms, safe browsing and useful online tools.</p><a href="#contact">Enquire about course →</a></article>
+          <article class="course"><div class="course-icon">💻</div><h3>Web Design Basics</h3><p>Get introduced to HTML and CSS and learn how a simple website is created.</p><a href="#contact">Enquire about course →</a></article>
+          <article class="course"><div class="course-icon">📈</div><h3>Advanced Excel</h3><p>Explore formulas, formatting, charts and useful spreadsheet techniques.</p><a href="#contact">Enquire about course →</a></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Why EduRise Academy</div>
+          <h2>Learning That Moves You Forward</h2>
+          <p>Our goal is to make computer education approachable, practical and useful for learners at every starting point.</p>
+        </div>
+        <div class="features-grid">
+          <div class="feature"><div class="course-icon">🧑‍🏫</div><h3>Beginner Friendly</h3><p>Clear learning paths designed for students who are just getting started.</p></div>
+          <div class="feature"><div class="course-icon">🛠️</div><h3>Practical Learning</h3><p>Focus on useful skills and hands-on practice, not just theory.</p></div>
+          <div class="feature"><div class="course-icon">🌱</div><h3>Grow With Confidence</h3><p>Build digital confidence step by step and keep learning as you progress.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="cta">
+          <h2>Ready to Start Learning?</h2>
+          <p>Take the first step toward stronger computer skills. Contact EduRise Academy to ask about courses and admissions.</p>
+          <a class="btn" href="#contact">Enquire Now →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container contact-grid">
+        <div>
+          <div class="eyebrow">Get in touch</div>
+          <h2>Let's Start Your Learning Journey</h2>
+          <p>Interested in a course? Send an enquiry and the academy team can follow up with course information.</p>
+          <p style="margin-top:18px"><b>Email:</b> Add your academy email<br><b>Phone:</b> Add your contact number<br><b>Address:</b> Add your academy address</p>
+        </div>
+        <form id="enquiryForm">
+          <label for="studentName">Your name</label><input id="studentName" name="studentName" placeholder="Enter your name" required>
+          <label for="studentEmail">Email address</label><input id="studentEmail" name="studentEmail" type="email" placeholder="Enter your email" required>
+          <label for="courseChoice">Course interested in</label>
+          <select id="courseChoice" name="courseChoice" required>
+            <option value="">Select a course</option><option>Basic Computer Skills</option><option>MS Office</option><option>English & Gujarati Typing</option><option>Internet & Digital Skills</option><option>Web Design Basics</option><option>Advanced Excel</option>
+          </select>
+          <label for="message">Your message</label><textarea id="message" name="message" placeholder="Write your question (optional)"></textarea>
+          <button class="btn" type="submit" style="width:100%">Submit Enquiry</button>
+          <p id="formMessage" role="status" style="font-size:.82rem;margin-top:12px"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="container">© <span id="year"></span> <b>EduRise Academy</b>. Learn Today • Lead Tomorrow.</div></footer>
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+    menuBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => navLinks.classList.remove('open')));
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('enquiryForm').addEventListener('submit', event => {
+      event.preventDefault();
+      document.getElementById('formMessage').textContent = 'Thank you! This demo form is ready for backend/email integration before accepting real enquiries.';
+    });
+  </script>
+</body>
+</html>
